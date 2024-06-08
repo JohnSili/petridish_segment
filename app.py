@@ -28,7 +28,7 @@ def process_image(filepath):
     filename = os.path.basename(filepath)
     processed_image_path = os.path.join(EXP_FOLDER, filename)
     
-    train_command = f"python yolov5/segment/predict.py --img 320 --weights bestptweights/best.pt --hide-labels --source {filepath} --project {UPLOAD_FOLDER} --exist-ok "
+    train_command = f"python yolov5/segment/predict.py --img 320 --weights bestptweights/best.pt --hide-labels --source {filepath} --project {UPLOAD_FOLDER} --exist-ok --line-thickness 1"
     res = subprocess.run(train_command, shell=True, capture_output=True, text=True)
     print('RES',res.stderr,'RES /n /n /n /n')
     bacteria_count, fungi_count = extract_counts(res.stderr)
@@ -69,12 +69,3 @@ def processed_file(filename):
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-
-#def process_image(filepath):
-#    train_command = f"python yolov5/segment/predict.py --img 320 --weights yolov5/bestptweights/best.pt --hide-labels --source {filepath} --project static/uploads/exp --exist-ok --name="
-#    subprocess.run(train_command, shell=True)
-#    
-#    processed_image_path = 'exp/processed_image.jpg'
-#    return url_for('serve_uploads', filename=processed_image_path)
-
