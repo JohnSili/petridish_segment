@@ -36,7 +36,7 @@ def process_image(filepath):
     if os.path.exists(processed_image_path):
         return processed_image_path, bacteria_count, fungi_count
     else:
-        return None, None
+        return None, None, None
 
 
 @app.route('/', methods=['GET', 'POST'])
