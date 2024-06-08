@@ -6,4 +6,4 @@ cd petridish_segment \
 git clone https://github.com/ultralytics/yolov5 \
 cd yolov5 \
 pip install -r requirements.txt \
-python app.py #for local test \
+python app.py #for local test 
