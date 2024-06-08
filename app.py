@@ -26,7 +26,7 @@ def extract_counts(output):
 def process_image(filepath):
     """Process an image using a YOLOv5 model and return the path to the processed image."""
     filename = os.path.basename(filepath)
-    processed_image_path = os.path.join(EXP_FOLDER, filename)
+    processed_image_path = os.path.join(app.config['EXP_FOLDER'], filename)
     
     train_command = f"python yolov5/segment/predict.py --img 320 --weights bestptweights/best.pt --hide-labels --source {filepath} --project {UPLOAD_FOLDER} --exist-ok --line-thickness 1"
     res = subprocess.run(train_command, shell=True, capture_output=True, text=True)
