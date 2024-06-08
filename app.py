@@ -28,7 +28,7 @@ def process_image(filepath):
     filename = os.path.basename(filepath)
     processed_image_path = os.path.join(EXP_FOLDER, filename)
     
-    train_command = f"python3 /myapp/petridish_segment/yolov5/segment/predict.py --img 320 --weights bestptweights/best.pt --hide-labels --source {filepath} --project {UPLOAD_FOLDER} --exist-ok --line-thickness 1"
+    train_command = f"python yolov5/segment/predict.py --img 320 --weights bestptweights/best.pt --hide-labels --source {filepath} --project {UPLOAD_FOLDER} --exist-ok --line-thickness 1"
     res = subprocess.run(train_command, shell=True, capture_output=True, text=True)
     print('RES',res.stderr,'RES /n /n /n /n')
     bacteria_count, fungi_count = extract_counts(res.stderr)
