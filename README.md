@@ -5,5 +5,6 @@ git clone https://github.com/JohnSili/petridish_segment.git \
 cd petridish_segment \
 git clone https://github.com/ultralytics/yolov5 \
 cd yolov5 \
+pip install Flask \
 pip install -r requirements.txt \
 python app.py #for local test 
