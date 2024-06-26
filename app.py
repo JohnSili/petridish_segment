@@ -54,7 +54,7 @@ def index():
             processed_image_path, bacteria_count, fungi_count = process_image(filepath)
             if processed_image_path:
                 processed_image_url = url_for('processed_file', filename=filename)
-                return render_template('index.html', uploaded_file=filename, processed_image_url=processed_image_url, bacteria_count=bacteria_count, fungi_count=fungi_count)
+                return render_template('index.html', uploaded_file=filename, processed_image_url=processed_image_url, bacteria_count=int(bacteria_count), fungi_count=int(fungi_count))
             else:
                 return render_template('index.html', uploaded_file=filename, error="Processed image not found.")
     return render_template('index.html')
