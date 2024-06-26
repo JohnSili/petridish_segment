@@ -8,7 +8,8 @@ cd yolov5 \
 pip install Flask \
 pip install -r requirements.txt \
 cd .. \
-for local test activate enviroment in your IDE
+\
+for local test activate enviroment in your IDE\
 python app.py #for local test \
 \
 for server test:\
