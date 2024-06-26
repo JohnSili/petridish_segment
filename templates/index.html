@@ -9,28 +9,25 @@
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="text-center">Upload and Process Image</h1>
+        <h1 class="text-center">Детекция на Yolov5</h1>
         <form method="post" enctype="multipart/form-data" class="mt-4">
             <div class="form-group">
-                <label for="file">Choose an image to upload</label>
+                <label for="file">Выберите картинку и загрузите</label>
                 <input type="file" name="file" class="form-control-file" id="file">
             </div>
-            <button type="submit" class="btn btn-primary">Upload</button>
+            <button type="submit" class="btn btn-primary">Загрузить</button>
         </form>
 
         {% if uploaded_file and processed_image_url %}
             <div class="row mt-5">
                 <div class="col-md-6">
-                    <h2>Original Image:</h2>
-                    <img src="{{ url_for('uploaded_file', filename=uploaded_file) }}" alt="Original Image" class="img-fluid">
+                    <h2>Оригинал:</h2>
+                    <img src="{{ url_for('uploaded_file', filename=uploaded_file) }}" alt="Оригинал" class="img-fluid">
                 </div>
                 <div class="col-md-6">
-                    <h2>Processed Image:</h2>
-                    <img src="{{ processed_image_url }}" alt="Processed Image" class="img-fluid">
-                    <p class="mt-3">Number of Bacterias: {{ bacteria_count }}</p>
-                    {% if fungi_count %}
-                        <p>Number of Fungis: {{ fungi_count }}</p>
-                    {% endif %}
+                    <h2>Результат:</h2>
+                    <img src="{{ processed_image_url }}" alt="Результат" class="img-fluid">
+                    <p class="mt-3">Число бактерий: {{ bacteria_count + fungi_count }}</p>
                 </div>
             </div>
         {% elif uploaded_file %}
