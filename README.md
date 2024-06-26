@@ -7,4 +7,10 @@ git clone https://github.com/ultralytics/yolov5 \
 cd yolov5 \
 pip install Flask \
 pip install -r requirements.txt \
-python app.py #for local test 
+cd .. \
+for local test activate enviroment in your IDE
+python app.py #for local test \
+\
+for server test:\
+source env/bin/activate \
+flask --app app run --host=0.0.0.0 #for server\
